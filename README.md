@@ -35,8 +35,8 @@ ClassTest<1>::runTest()
 
 3. build
 ```bash
-$ g++ -g -c -I../include/ IntegerTest.cpp -o IntegerTest.o
-$ g++ -g IntegerTest.o ../source/*.o
+$ g++ -g -c -I../include/ ClassTest.cpp -o ClassTest.o
+$ g++ -g ClassTest.o ../source/*.o
 ```
 
 4. run the test
