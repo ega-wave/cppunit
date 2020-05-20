@@ -47,4 +47,11 @@ $ ./a.out
 OK (1 tests)
 ```
 
+# About TEST_ASSERT_* Macros
+As for now, these 2 macros are implemented.
+
+- TEST_ASSERT_EQUALS
+- TEST_ASSERT_NOT_EQUALS
+
 That's it.
+
