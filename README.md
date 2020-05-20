@@ -1,6 +1,48 @@
 # Cppunit
 my x-unit for C++
 
+# Differences with any other kind of CppUnit
+1. You can call setUp() and tearDown() method on *EVERY* test.
+
+Here is a example.
+
+```C++
+template <>
+void
+IntegerTest<1>::setUp()
+{
+  /* set-up for IntegerTest<1>::runTest() */
+}
+
+template <>
+void
+IntegerTest<1>::runTest()
+{
+  Integer i(1);
+  TEST_ASSERT_EQUALS(int(1),i.get());
+}
+
+template <>
+void
+IntegerTest<1>::tearDown()
+{
+  /* tear-down for IntegerTest<1>::runTest() */
+}
+```
+
+On other CppUnit, You can call these methods only one time during execution of all IntegerTest's test method.
+
+If IntegerTest<1>::runTest() doesn't need any setUp() or tearDown() method, you can simply comment it out.
+
+2. You don't worry about the name of your test method.
+
+To add a test, only you have to do is to write IntegerTest<2>::runTest() method.
+Instead, you can describe explanation about a test as a literal string.
+
+```C++
+  suite->addTest(new IntegerTest<2>("subtract test"));
+```
+
 # Supported configuration
 - gcc version 8.3.0 (Raspbian 8.3.0-6+rpi1)
 - Any C++ compiler that supports C++98
