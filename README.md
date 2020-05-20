@@ -3,7 +3,7 @@ my x-unit for C++
 
 # supported configuration
 - gcc version 8.3.0 (Raspbian 8.3.0-6+rpi1)
-- Any C++ compiler that supports C++03
+- Any C++ compiler that supports C++98
 
 # how to build
 Just issue 'make' command on the top of the directory.
