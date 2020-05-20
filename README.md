@@ -1,11 +1,11 @@
-# cppunit
+# Cppunit
 my x-unit for C++
 
-# supported configuration
+# Supported configuration
 - gcc version 8.3.0 (Raspbian 8.3.0-6+rpi1)
 - Any C++ compiler that supports C++98
 
-# how to build
+# How to build
 Just issue 'make' command on the top of the directory.
 
 ```bash
@@ -14,7 +14,7 @@ $ make
 
 It produces .o files under the source/ directory.
 
-# how to use
+# How to use
 1. Generate ClassTest.cpp. "Class" is the class which you want to test on.
 
 ```bash
