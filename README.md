@@ -4,7 +4,7 @@ my x-unit for C++
 # Differences with any other kind of CppUnit
 1. You can call setUp() and tearDown() method on *EVERY* test.
 
-Here is a example.
+Here is an example.
 
 ```C++
 template <>
@@ -89,11 +89,12 @@ $ ./a.out
 OK (1 tests)
 ```
 
+That's it.
+
 # About TEST_ASSERT_* Macros
 As for now, these 2 macros are implemented.
 
 - TEST_ASSERT_EQUALS
 - TEST_ASSERT_NOT_EQUALS
 
-That's it.
-
+Thanks.
