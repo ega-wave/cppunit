@@ -37,7 +37,7 @@ If IntegerTest<1>::runTest() doesn't need any setUp() or tearDown() method, you 
 2. You don't worry about the name of your test method.
 
 To add a test, only you have to do is to write IntegerTest<2>::runTest() method.
-Instead, you can describe explanation about a test as a literal string.
+In order to describe about test, you can write it as a literal string.
 
 ```C++
   suite->addTest(new IntegerTest<2>("subtract test"));
