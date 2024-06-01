@@ -34,3 +34,6 @@ source/TestSummary.o : source/TestSummary.cpp
 source/main.o : source/main.cpp
 	bash compile.bash main
 
+clean:
+	find . -name "*.o" | xargs rm
+
