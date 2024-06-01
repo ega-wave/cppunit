@@ -3,7 +3,7 @@
 
 CLASS=$1
 
-cat << EOS | base64 -d | sed 's/\$CLASS\$/'$CLASS'/g' > ${CLASS}Test.cpp
+cat << EOS | base64 -d | sed 's/\$CLASS\$/'$CLASS'/g' #> ${CLASS}Test.cpp
 CiNpbmNsdWRlICJUZXN0Q2FzZS5oIgojaW5jbHVkZSAiVGVzdEFzc2VydEZ1bmN0b3IuaCIKI2lu
 Y2x1ZGUgIlRlc3RSZWdpc3Rlci5oIgojaW5jbHVkZSAiVGVzdFN1aXRlLmgiCgovLyA844Om44O8
 44K254us6Ieq44Gu44Kk44Oz44Kv44Or44O844OJPgojaW5jbHVkZSAiJENMQVNTJC5oIgpjbGFz
