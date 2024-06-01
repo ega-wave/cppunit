@@ -82,7 +82,7 @@ void printStatus(TestLog::Status status)
   default:
     break;  // ありえない...
   };
-  std::cerr << c << std::flush;
+  std::cerr << c;
 }
 
 void
