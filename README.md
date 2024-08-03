@@ -1,10 +1,11 @@
-# Cppunit
-my x-unit for C++
+# CppUnit (ega-wave version)
+xUnit for C++ built from scratch.
 
-# Differences with any other kind of CppUnit
-1. You can call setUp() and tearDown() method on *EVERY* test.
+# Features that differ with other CppUnit
+1. You can call setUp() and/or tearDown() method on *EVERY* test.
 
 Here is an example.
+Executed in the order IntegerTest<1>::setUp(), IntegerTest<1>::runTest(), IntegerTest<1>::tearDown().
 
 ```C++
 template <>
@@ -30,24 +31,26 @@ IntegerTest<1>::tearDown()
 }
 ```
 
-On other CppUnit, You can call these methods only one time during execution of all IntegerTest's test method.
+If no setUp() and/or tearDown() method needed, you can simply comment it out or remove it.
 
-If IntegerTest<1>::runTest() doesn't need any setUp() or tearDown() method, you can simply comment it out.
+2. You can avoid from naming for your test method
 
-2. You don't worry about the name of your test method.
+In CppUnit, you must declare and implement methods XxxTest::testSomething1ToTest(), XxxTest::testSomething2ToTest(), and so on.
+It is hard work for you to decide it's name.
 
-To add a test, only you have to do is to write IntegerTest<2>::runTest() method.
-In order to describe about test, you can write it as a literal string.
+But with my CppUnit, to add a test, you should implement IntegerTest<2>::runTest() method.
+To add one more test, it is sufficient to implement IntegerTest<3>::runTest() method.
+In this way, addding tests is very easy, but don't forget to call TestSuite::addTest(new XxxTest<N>()).
+The argment of the constructor (XxxTest<N>::XxxTest<N>(const char*)) is a description being tested and is passed as a literal string.
 
 ```C++
   suite->addTest(new IntegerTest<2>("subtract test"));
 ```
 
 # Supported configuration
-- gcc version 8.3.0 (Raspbian 8.3.0-6+rpi1)
-- Any C++ compiler that supports C++98
+- Any C++ compiler that supports C++98 or later.
 
-# How to build
+# How to compile
 Just issue 'make' command on the top of the directory.
 
 ```bash
