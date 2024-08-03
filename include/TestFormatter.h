@@ -6,13 +6,13 @@ class TestLog;
 class TestSummary;
 
 /**
- * テスト結果のログを出力するクラス.
+ * print-out formatter for log.
  */
 class TestFormatter
 {
 public:
-  virtual void print(TestLog* log) const;  /**< テスト結果のログを出力する */
-  virtual void print(const TestSummary* summary) const;  /**< テスト結果のサマリを出力する */
+  virtual void print(TestLog* log) const;  /**<  */
+  virtual void print(const TestSummary* summary) const;  /**<  */
 };
 
 #endif  // TEST_FORMATTER_H

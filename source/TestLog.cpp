@@ -69,7 +69,7 @@ void printStatus(TestLog::Status status)
   switch (status)
   {
   case TestLog::TEST_LOG_NOT_TESTED:
-    break;  // NOT_TESTEDはありえない...
+    break;  // never comes...
   case TestLog::TEST_LOG_SUCCESS:
     c = '.';
     break;
@@ -80,7 +80,7 @@ void printStatus(TestLog::Status status)
     c = 'E';
     break;
   default:
-    break;  // ありえない...
+    break;  // never comes...
   };
   std::cerr << c;
 }

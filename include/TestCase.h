@@ -11,8 +11,8 @@ class TestLog;
 class TestAssertFunctorBase;
 
 /**
- * テストケースを表わすクラス.
- * 個々のテストケースはすべて、このクラスを継承すること.
+ * a class that represents a test-case.
+ * Every test-case-class must derive TestCase as base-class.
  */
 class TestCase : public Test
 {
@@ -26,15 +26,15 @@ public:
   virtual const char* getName() const;
   virtual size_type getNumber() const;
 
-  virtual void setUp();  /**< テストの前準備を行なう、テンプレートメソッド */
-  virtual void runTest() = 0;  /**< 実際のテストを行なう、テンプレートメソッド */
-  virtual void tearDown();  /**< テストの後始末を行なう、テンプレートメソッド */
+  virtual void setUp();  /**< preparation */
+  virtual void runTest() = 0;  /**< run me */
+  virtual void tearDown();  /**< clean-up */
 
-  virtual TestLog* createLog(const Test* test);  /**< このテストの結果のログを作成する */
-  virtual TestLog* getLog();  /**< このテストのログを返す */
-  virtual void addLog(TestLog* log);  /**< ログをTestResultクラスに追加する */
+  virtual TestLog* createLog(const Test* test);  /**<  */
+  virtual TestLog* getLog();  /**<  */
+  virtual void addLog(TestLog* log);  /**<  */
 
-  virtual bool cppunit_assert(const TestAssertFunctorBase& functor, const char* filename, long line);  /**< テストの結果比較を行なう */
+  virtual bool cppunit_assert(const TestAssertFunctorBase& functor, const char* filename, long line);  /**< do assert() */
 
 private:
   size_type testNum_;

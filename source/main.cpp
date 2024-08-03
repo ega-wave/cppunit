@@ -5,12 +5,12 @@
 
 int main()
 {
-	TestRunner runner;
-	TestResult result;
+  TestRunner runner;
+  TestResult result;
 
-	runner.addTest(TestRegister::makeTest());
-	runner.run(&result);
+  runner.addTest(TestRegister::makeTest());
+  runner.run(&result);
 
-	return 0;
+  return 0;
 }
 

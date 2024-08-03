@@ -7,7 +7,7 @@ class TestResultImpl;
 class TestFormatter;
 
 /**
- * テスト結果の集合を表わすクラス.
+ * test-result.
  */
 class TestResult
 {
@@ -15,9 +15,9 @@ public:
   TestResult();
   ~TestResult();
 
-  virtual void addLog(TestLog* log);  /**< テスト結果を追加する */
-  virtual void print(TestFormatter* format);  /**< テスト結果を出力する */
-  virtual void printSummary(TestFormatter* format);  /**< テストのサマリを出力する */
+  virtual void addLog(TestLog* log);  /**< */
+  virtual void print(TestFormatter* format);  /**< */
+  virtual void printSummary(TestFormatter* format);  /**< */
 
 private:
   TestResultImpl* impl_;

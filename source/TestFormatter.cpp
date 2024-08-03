@@ -12,13 +12,13 @@ TestFormatter::print(TestLog* log) const
   buf << log->getTestNumber() << "\t" << log->getTestName() << "\t";
   switch (log->getStatus()) {
   case TestLog::TEST_LOG_NOT_TESTED:
-    buf << "未" << "\t\t";
+    buf << "N" << "\t\t";
     break;
   case TestLog::TEST_LOG_SUCCESS:
-    buf << "○" << "\t\t";
+    buf << "o" << "\t\t";
     break;
   case TestLog::TEST_LOG_FAILURE:
-    buf << "×";
+    buf << "x";
     buf << "\t" << log->getFileName() << ":" << log->getLine() << "\t" << log->getMessage();
     break;
   case TestLog::TEST_LOG_ERROR:
@@ -30,7 +30,7 @@ TestFormatter::print(TestLog* log) const
   };
   char timebuf[32];
   std::time_t testedTime = log->getTestedTime();
-  std::strftime(timebuf, sizeof(timebuf), "%Y/%m/%d %H:%M:%S", std::localtime(&testedTime));
+  std::strftime(timebuf, sizeof(timebuf), "%Y-%m-%d %H:%M:%S", std::localtime(&testedTime));
   buf << "\t" << timebuf;
   std::cout << buf.str() << std::endl;
 }

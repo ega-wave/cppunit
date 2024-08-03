@@ -1,14 +1,9 @@
 
 #include "TestAssertFunctorBase.h"
 #include <cstring>
-//#if !defined(WIN32) && !defined(_RWCONFIG)
-//namespace std {
-//  using ::strcmp;
-//}
-//#endif  // _RWCONFIG
 
 /**
- * コンストラクタ.
+ * constructor.
  */
 TestAssertStringEqualFunctor::TestAssertStringEqualFunctor(const char* expected, const char* actual)
 : expected_(expected), actual_(actual)

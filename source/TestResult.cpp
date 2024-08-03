@@ -5,7 +5,7 @@
 #include "TestLog.h"
 #include "TestSummary.h"
 
-// TestLogクラスのdeleteはTestResultが行なう
+// class TestResult is responsible for deleting TestLog instance.
 
 class TestResultImpl
 {

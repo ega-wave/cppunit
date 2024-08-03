@@ -9,7 +9,7 @@
 class TestSuiteImpl;
 
 /**
- * テストの集合をあらわす.
+ *
  */
 class TestSuite : public Test
 {
@@ -23,7 +23,7 @@ public:
   virtual const char* getName() const;
   virtual size_type getNumber() const;
 
-  virtual void addTest(Test* test);  /**< テストを追加する */
+  virtual void addTest(Test* test);  /**<  */
 
 private:
   TestSuiteImpl* impl_;

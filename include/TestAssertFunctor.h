@@ -16,13 +16,10 @@
 #include "TestAssertFunctorBase.h"
 #endif  // TEST_ASSERT_FUNCTOR_BASE_H
 
-// privateメンバにアクセスするためのマクロ
-// (Target)Friendクラスに、メンバ(const ターゲット&) const関数が定義されてる必要あり
-#define TEST_PRIVATE_ACCESS(var, member) (member(var))
 
 ///////////////////////////// makeMessage関数 ///////////////////////////
 /**
- * makeMessage関数(operator==()版).
+ * makeMessage function (std::equal_to<T>() version).
  */
 template <typename T>
 std::string
@@ -34,7 +31,7 @@ makeMessage(const T& expected, const T& actual, const std::equal_to<T>&)
 }
 
 /**
- * makeMessage関数(operator!=()版).
+ * makeMessage function (std::not_equal_to<T>() version).
  */
 template <typename T>
 std::string
@@ -46,7 +43,7 @@ makeMessage(const T& not_expected, const T&, const std::not_equal_to<T>&)
 }
 
 /**
- * assert関数オブジェクト.
+ * a functor for assert.
  */
 template <typename T, typename C>  // C = functor<T> e.g. std::equal_to<T>
 class TestAssertFunctor : public TestAssertFunctorBase
@@ -63,15 +60,8 @@ private:
   const T& actual_;
 };
 
-/*****************************************************
- * ここより下で実装する。実装するのは、
- * ・ASSERTマクロ
- * ・上のTestAssertFunctorクラステンプレート生成関数
- * ・makeMessage関数
- * 現在、operator==()とoperator!=()を実装
- *****************************************************/
 
-///////////////////////////// ASSERTマクロ //////////////////////////////
+///////////////////////////// ASSERT macro //////////////////////////////
 #define TEST_ASSERT_EQUALS(expect, actual) \
   if (! cppunit_assert(makeTestAssertEqualFunctor(expect, actual), __FILE__, __LINE__)) return
 #define TEST_ASSERT_NOT_EQUALS(not_expect, actual) \
@@ -79,9 +69,9 @@ private:
 #define TEST_ASSERT_STRING_EQUALS(expect, actual) \
   if (! cppunit_assert(TestAssertStringEqualFunctor(expect, actual), __FILE__, __LINE__)) return
 
-/////////////////////////// TestAssertFunctorクラステンプレート生成関数
+/////////////////////////// make-function for a functor
 /**
- * TestAssertFunctorクラステンプレート生成関数(operator==()版).
+ * make-function for a TestAssertFunctor (std::equal_to<T> version).
  */
 template <typename T>
 TestAssertFunctor<T, std::equal_to<T> >
@@ -91,7 +81,7 @@ makeTestAssertEqualFunctor(const T& expect, const T& actual)
 }
 
 /**
- * TestAssertFunctorクラステンプレート生成関数(operator!=()版).
+ * make-function for a TestAssertFunctor (std::not_equal_to<T> version).
  */
 template <typename T>
 TestAssertFunctor<T, std::not_equal_to<T> >

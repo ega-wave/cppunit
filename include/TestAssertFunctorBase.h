@@ -8,18 +8,18 @@
 #endif  // TEST_STRING
 
 /**
- * assert関数オブジェクトのインターフェースクラス.
+ * abstract class for TestAssertFunctor.
  */
 class TestAssertFunctorBase
 {
 public:
   virtual ~TestAssertFunctorBase() {}
-  virtual bool operator()() const = 0;  /**< 比較テストの成否を返す */
-  virtual std::string assertMessage() const = 0;  /**< 失敗した時のメッセージを返す */
+  virtual bool operator()() const = 0;  /**< return assert() */
+  virtual std::string assertMessage() const = 0;  /**< return a message in case of test-failure */
 };
 
 /**
- * assert関数オブジェクト(T = const char*, C = std::equal_to<>).
+ * functor for a C-style string (T = const char*, C = std::equal_to<>).
  */
 class TestAssertStringEqualFunctor : public TestAssertFunctorBase
 {

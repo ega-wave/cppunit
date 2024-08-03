@@ -5,7 +5,7 @@
 #include "TestResult.h"
 #include "TestFormatter.h"
 
-// TestクラスのdeleteはTestRunnerが行なう
+// class TestRunner is responsible for deleting of Test instance.
 
 class TestRunnerImpl
 {
@@ -47,13 +47,13 @@ TestRunner::run(TestResult* result)
 
   for (test_itr itr = impl_->getTests().begin();
     itr != impl_->getTests().end(); ++itr) {
-    (*itr) -> run(result);  // テスト実行
+    (*itr) -> run(result);  // run test
   };
 
   TestFormatter format_;
-  result -> print(&format_);  // 結果出力
+  result -> print(&format_);  // print result
 
-  result -> printSummary(&format_);  // サマリ出力
+  result -> printSummary(&format_);  // print summary
 }
 
 void

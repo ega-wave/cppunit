@@ -15,26 +15,26 @@
 class Test;
 
 /**
- * テスト結果のログを表わすクラス.
+ * the class that represents a log.
  */
 class TestLog
 {
 public:
-  enum Status { TEST_LOG_NOT_TESTED, TEST_LOG_SUCCESS, TEST_LOG_FAILURE, TEST_LOG_ERROR };  /**< テスト結果を表わす */
+  enum Status { TEST_LOG_NOT_TESTED, TEST_LOG_SUCCESS, TEST_LOG_FAILURE, TEST_LOG_ERROR };  /**< the status of test-result */
 
   explicit TestLog(const Test* test);
   ~TestLog();
 
-  Status getStatus() const;  /**< テスト結果を返す */
-  std::string getMessage() const;  /**< テストに失敗した時のメッセージを返す */
-  const char* getFileName() const;  /**< テストに失敗した時のテストが記述されているファイル名を返す */
-  long getLine() const;  /**< テストに失敗した時の行番号を返す */
-  unsigned int getTestNumber() const;  /**< テスト番号を返す */
-  const char* getTestName() const;  /**< テスト名を返す */
-  std::time_t getTestedTime();  /**< テストした時刻を返す */
+  Status getStatus() const;  /**<  */
+  std::string getMessage() const;  /**< return a message in case of test-failure */
+  const char* getFileName() const;  /**< return a source file's name in case of test-failure */
+  long getLine() const;  /**< return a line-no of a source file in case of test-failure */
+  unsigned int getTestNumber() const;  /**< return test number */
+  const char* getTestName() const;  /**< return test name */
+  std::time_t getTestedTime();  /**< return the time of test-execution */
 
-  void set(Status status);  /**< テスト結果をセットする */
-  void set(const std::string& mes, const char* filename, long line);  /**< テストに失敗した時の情報をセットする */
+  void set(Status status);  /**<  */
+  void set(const std::string& mes, const char* filename, long line);  /**< set info in case of test-failure */
 
 private:
 

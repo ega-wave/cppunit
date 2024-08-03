@@ -10,7 +10,7 @@
 class TestResult;
 
 /**
- * テストを表わすインターフェイスクラス.
+ * abstract class that represents a test
  */
 class Test
 {
@@ -19,9 +19,9 @@ public:
 
   virtual ~Test();
 
-  virtual void run(TestResult* result) = 0; /**< テストを実行する */
-  virtual const char* getName() const = 0;  /**< テスト名を返す */
-  virtual size_type getNumber() const = 0;  /**< テスト番号を返す */
+  virtual void run(TestResult* result) = 0; /**< run me (do a test) */
+  virtual const char* getName() const = 0;  /**< return test's name */
+  virtual size_type getNumber() const = 0;  /**< return test no. */
 };
 
 #endif  // TEST_H
