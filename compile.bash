@@ -1,4 +1,8 @@
 
+CPPFLAGS="-std=c++17 -g"
+
+###
+
 cd source
-g++ -g -c -I../include $1.cpp -o $1.o
+g++ ${CPPFLAGS} -I../include -c $1.cpp -o $1.opp
 
